@@ -1,0 +1,358 @@
+Anudip Test:
+
+1)Explain the concept of Type casting with the help of example. (5 Marks)
+Ans: In Java, type casting is a method or process that converts a data type into another data type in both ways manually and automatically. The automatic conversion is done by the compiler and manual conversion performed by the programmer.
+There are two type of type casting,
+a)Widening Type Casting - Converting a lower data type into a higher one is called widening type casting. It is also known as implicit conversion or casting down.
+b)Narrowing Type Casting - Converting a higher data type into a lower one is called narrowing type casting. It is also known as explicit conversion or casting up.
+
+Example of type casting:
+package javaapplication1;
+import java.util.Scanner;
+public class TypeCastingEx {
+    public static void main(String args[])
+    {
+        System.out.println("Widening Type Casting Example:");
+        int num1;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter integer number: ");
+        num1 = sc.nextInt();
+        System.out.println("Before Conversion: " + num1);
+        long lg = num1;
+        double d = lg;
+        System.out.println("After Conversion: " + d);
+        
+        System.out.println("\nNarrowing Type Casting Example:");
+        double num2;
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Enter decimal number: ");
+        num2 = sc1.nextDouble();
+        System.out.println("Before Conversion: " + num2);
+        long l = (long)num2;
+        int i = (int)l;
+        System.out.println("After Conversion: " + i);
+    }
+}
+Output:
+Widening Type Casting Example:
+Enter integer number: 
+565
+Before Conversion: 565
+After Conversion: 565.0
+
+Narrowing Type Casting Example:
+Enter decimal number: 
+987.88
+Before Conversion: 987.88
+After Conversion: 987
+BUILD SUCCESSFUL (total time: 7 seconds)
+
+
+2)Explain the concept of OOPS By using a program which will combine each concept of OOPS (15 Marks)
+Ans: Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects.The main aim of object oriented programming is providing real world entities. It simplifies software development and maintenance by providing some concepts:
+a)Object - An object is an instance of a class. Any entity that has state and behavior is known as an object.
+b)Class - A class is a user-defined blueprint of real time entities from which objects are created. Or collection of objects.
+c)Inheritance - When one object acquires all the properties and behaviors of a parent object, it is known as inheritance.
+d)Polymorphism - Polymorphism means “many forms”, and it occurs when we have many classes that are related to each other by inheritance. Two types - run time and compile time polymorphism.
+e)Abstraction - Data abstraction is the process of hiding certain details (implementation details) and showing only essential information (functionality) to the user. 
+f)Encapsulation - Binding (or wrapping) code and data together into a single unit are known as encapsulation.
+
+Example of OOPs Concept:
+package javaapplication1;
+class One 
+{
+    public void display() 
+    {
+        System.out.println("Hieee");
+    }
+}
+
+//inheritance 
+class Two extends One 
+{
+    public void display() 
+    {
+        System.out.println("Byee");
+    }
+}
+
+//encapsulation
+class EncapTest 
+{
+    private String name;
+    public String getName() 
+    {
+        return name;
+    }
+    public void setName(String newName) 
+    {
+        name = newName;
+    }
+}
+
+//abstraction
+abstract class TwoWheeler 
+{
+    public abstract void run();
+}
+
+class Suzuki extends TwoWheeler
+{
+    public void run()
+    {
+        System.out.println("\nActiva is Running..");
+    }
+}
+
+class MainClass 
+{
+    public static void main(String[] args) 
+    {
+        One a=new One();
+        a.display();
+        Two b=new Two();
+        b.display();
+
+//polymorphism
+        EncapTest encap = new EncapTest();
+        encap.setName("Mantasha");
+        System.out.print("Name : " + encap.getName());
+        TwoWheeler test = new Suzuki();
+        test.run();
+    }
+}
+
+Output:
+Hieee
+Byee
+Name : Mantasha
+Activa is Running..
+BUILD SUCCESSFUL (total time: 0 seconds)
+
+
+3)Write a program to perform the following operation with the help of packages.  (20 Marks)
+a) Armstrong NO
+Ans: package javaapplication1;
+import java.util.Scanner;
+public class ArmstrongEx 
+{
+    public static void main(String[] args) 
+    {
+        int num1,number, rem, res = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter integer number: ");
+        num1 = sc.nextInt();
+        number = num1;
+        while (number != 0)
+        {
+            rem = number % 10;
+            res += Math.pow(rem,3);
+            number /= 10;
+        }
+
+        if(res == num1)
+            System.out.println(num1 + " is an Armstrong number.");
+        else
+            System.out.println(num1 + " is not an Armstrong number.");
+    }
+}
+
+Output:
+Enter integer number: 
+627
+627 is not an Armstrong number.
+BUILD SUCCESSFUL (total time: 1 second)
+
+Enter integer number: 
+153
+153 is an Armstrong number.
+BUILD SUCCESSFUL (total time: 2 seconds)
+
+b) Check entered character is palindrome or not
+Ans: package javaapplication1;
+import java.util.Scanner;
+public class PalindromeEx {
+   public static void main(String[] args)
+   {
+       String str, reverseStr = "";
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter string: ");
+       str = sc.nextLine();
+       int length = str.length();
+       for (int i = length - 1; i>=0; i--) 
+       {
+           reverseStr = reverseStr + str.charAt(i);
+       }
+       if (str.equals(reverseStr)) 
+       {
+           System.out.println(str + " is a Palindrome String.");
+       }
+       else 
+       {
+           System.out.println(str + " is not a Palindrome String.");
+       }
+    }
+}
+
+Output:
+Enter string: 
+malayalam
+malayalam is a Palindrome String.
+BUILD SUCCESSFUL (total time: 4 seconds)
+
+c) Whether the given no is prime or not
+Ans: package javaapplication1;
+import java.util.Scanner;
+public class PrimeNumEx
+{
+  public static void main(String[] args) 
+  {  
+       int count = 0;
+       Scanner sc = new Scanner(System.in);  
+       System.out.print("Enter a number : ");  
+       int num = sc.nextInt();
+       
+       for (int i = 1; i <= num / 2; i++) 
+       {
+           if (num % i == 0) 
+           {
+               count++;
+           }
+       }
+    if (count > 1) {
+        System.out.println(num + " is not Prime Number");
+    }
+    else {
+      System.out.println(num + " is a Prime Number");
+    }
+  }
+}
+
+Output:
+Enter a number : 17
+17 is a Prime Number
+BUILD SUCCESSFUL (total time: 7 seconds)
+
+d) Average, smallest, greatest by using array 
+Ans: package javaapplication1;
+public class LSAExample 
+{
+    public static void main(String[] args) 
+    {
+      int numbers[] = new int[]{83,92,702,64,3,29,5};
+      int smallest = numbers[0];
+      int largest = numbers[0];
+      int avg = (largest+smallest)/2;
+      for (int i = 1; i < numbers.length; i++) 
+       {
+          if (numbers[i] > largest)
+          {
+              largest = numbers[i];
+          }
+          else if (numbers[i] < smallest)
+          {
+              smallest = numbers[i];
+          }
+          
+       }
+      System.out.println("Largest Number is: " + largest);
+      System.out.println("Smallest Number is: " + smallest);
+      System.out.println("Average Number is: " + avg);
+    }  
+}
+
+Output:
+Largest Number is: 702
+Smallest Number is: 3
+Average Number is: 83
+BUILD SUCCESSFUL (total time: 0 seconds)
+
+
+4)Write a program to store the Employee data in the database by using Servlet and JDBC (10 Marks)
+Ans: 
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+/**
+ * Servlet implementation class create_account
+ */
+public class create_account extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public create_account() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String ename = request.getParameter("ename");
+		String epass = request.getParameter("epass");
+		String eemail = request.getParameter("eemail");
+		String eId = request.getParameter("eId");
+		String edpt = request.getParameter("edpt");
+		String enumber = request.getParameter("enumber");
+		String eaddress = request.getParameter("eaddress");
+		
+	
+		
+		String qry = "insert into User_data values (?,?,?,?,?,?) ";
+	try
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection
+("jdbc:mysql://localhost:3306/Employees", "root","root");
+		PreparedStatement ps = con.prepareStatement(qry);
+		ps.setString(1,ename);
+		ps.setString(2,epass);
+		ps.setString(3,eemail);
+		ps.setString(4,eID);
+		ps.setString(5,edpt);
+		ps.setString(6,enumber);
+		ps.setString(7,eaddress);
+		
+		int count = ps.executeUpdate();
+		if(count>0) {
+			response.sendRedirect("main_page.jsp");
+		}
+		else
+		{
+			System.out.println("Invalid Information ");
+		}
+		
+
+	}
+	catch (Exception e) {
+		e.printStackTrace();
+	}
+	}
+	
+	
+	
+
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
